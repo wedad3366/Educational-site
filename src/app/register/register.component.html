@@ -1,0 +1,45 @@
+<section class="overflow-x-hidden">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 imagelogin">
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mx-auto my-5">
+            <h1 class="text-center mb-3 fw-bold" style="color: #FFCC00;">Register</h1>
+            <form style="color:#FAF5E9 ;" [formGroup]="userRegister">
+                <div class="row mb-2">
+                    <div class="col">
+                        <label class="fw-bold ms-3 mb-2">User Name</label>
+                        <span class="text-danger m-1">*</span>
+                      <input type="email" class="form-control mb-2" formControlName="userName" placeholder="User Name" aria-label="User Name">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <label class="fw-bold ms-3 mb-2">Email</label>
+                        <span class="text-danger m-1">*</span>
+                      <input type="email" class="form-control mb-2" formControlName="email" placeholder="Email" aria-label="Email">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <label class="fw-bold ms-3 mb-2">Password</label>
+                        <span class="text-danger m-1">*</span>
+                      <input type="password" class="form-control mb-2" formControlName="password" placeholder="Password" aria-label="Password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="fw-bold ms-3 mb-2">Confirm Password</label>
+                        <span class="text-danger m-1">*</span>
+                      <input type="password" class="form-control mb-2" formControlName="confirmPassword" placeholder="confirm Password" aria-label="onfirm Password">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a routerLink="/login" class="btn mt-4" style="color: #009B4D;" value="Log In">Do you have account ?</a>
+                    <button  type="submit" class="btn mt-4" (click)="submit()" [disabled]="userRegister.invalid || (userRegister.value.password !== userRegister.value.confirmPassword)"  style="background-color: #009B4D; color: #FAF5E9;">
+                        Sign Up
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

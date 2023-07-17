@@ -1,0 +1,87 @@
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+
+                <!--part one in section-->
+
+                <div class="mb-5 mt-5  part-one">
+                    <h3 class="fw-bold fs-2 mb-4" style="color: #FFCC00;">Subject's Name</h3>
+                    <div class="input-group">
+                        <input type="text" class="form-control" [formControl]="subjectName" placeholder="Subject's Name">
+                        <button class="btn btn-outline-success text-white" (click)="showPartTwo()"  type="button" id="button-addon2">Start</button>
+                    </div>
+                </div>
+
+                <!--part Two in section-->
+
+                <form  class="mb-5 mt-5 part-two" [formGroup]="createQuestion" (ngSubmit)="saveEdit(createQuestion)">
+                    <h3 class="fw-bold fs-2 mb-4" style="color: #FFCC00;">{{subjectName.value}} Questions</h3>
+                    <div class="input-group mb-3">
+                        <input class="input-group-text" formControlName="id" style="width: 10%!important;" id="basic-addon1" placeholder="#" >
+                        <input type="text" class="form-control" formControlName="question" placeholder="Question" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="d-flex justify-content-between mb-4 mt-4" style="color: #FAF5E9;">
+                        <div class="form-check me-3">
+                            <input class="form-check-input mt-2"  value="answer1" (change)="getCorrectAnswer($event)" name="answer" type="radio" >
+                            <input type="text" class="form-control" formControlName="answer1" placeholder="answer1">
+                        </div>
+                          <div class="form-check">
+                            <input class="form-check-input mt-2"  value="answer2" (change)="getCorrectAnswer($event)"  name="answer" type="radio" >
+                            <input type="text" class="form-control" formControlName="answer2" placeholder="answer2">
+                          </div>
+                    </div>
+                    <div class="d-flex justify-content-between"  style="color: #FAF5E9;">
+                        <div class="form-check me-3">
+                            <input class="form-check-input mt-2"  value="answer3" (change)="getCorrectAnswer($event)"  name="answer" type="radio"  >
+                            <input type="text" class="form-control" formControlName="answer3" placeholder="answer3">
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input mt-2"  value="answer4" (change)="getCorrectAnswer($event)" name="answer" type="radio" >
+                            <input type="text" class="form-control" formControlName="answer4" placeholder="answer4">
+                          </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4" role="group" aria-label="Basic mixed styles example">
+                        <div>
+                            <button type="button" class="btn btn-success  me-3 text-white" *ngIf="!showButtonSave" [disabled]="createQuestion.invalid" (click)="createNewQuestion()">Save</button>
+                            <input type="submit" class="btn btn-success  me-3 text-white" *ngIf="showButtonSaveEdit" value="Save Edit">
+                            <button type="button"class="btn btn-outline-success text-white" *ngIf="!showButtonFinsh" [disabled]="(allQuestion.length == 0 ) ? true : false" (click)="submit()">Finish all question</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn me-3 text-white"  style="background-color: #FFCC00;" *ngIf="!showButtonEdit" (click)="showPartOne()">Edit Subject</button>
+                            <button type="button"class="btn btn-outline-success text-white me-3" *ngIf="showButtonAdd" (click)="addNewQuestionInExam()">Add</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteExam()">Delete All Exam</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!--part three in section-->
+
+                <div class="mb-5 mt-5 part-three">
+                    <h3 class="fw-bold fs-2 mb-4" style="color: #FFCC00;">{{subjectName.value}} Exam</h3>
+                    <div *ngFor="let item of allQuestion ; index as i ; let index = index">
+                        <p class="text-white "><b class="text-decoration-underline fw-bold me-3">Question <span style="color: #FFCC00;"> {{i+1}}</span></b><span class="fs-4">{{item.question}}</span></p>
+                        <ol class="text-white" type="A">
+                            <li class="mb-1 fs-6">{{item.answer1}}</li>
+                            <li class="mb-1 fs-6">{{item.answer2}}</li>
+                            <li class="mb-1 fs-6">{{item.answer3}}</li>
+                            <li class="mb-1 fs-6">{{item.answer4}}</li>
+                        </ol> 
+                        <p class="fs-5" style="color: #009B4D;">Correct answer : <b>{{item.correctAnswer}}</b></p>
+                        <div class="d-flex justify-content-end mt-3" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn me-3 text-white" style="background-color: #FFCC00;" (click)="updateOneQuestion(item)">Edit</button>
+                            <button type="button" class="btn btn-danger" (click)="deletOneQuestion(index)">Delete</button>
+                       </div>
+                    </div>
+                    <div>
+                        <button type="button" class="btn text-white btn-outline-success me-3" (click)="back()" >Add question</button>
+                        <button type="button" class="btn text-white btn-outline-success" (click)="anotherExam()" >Another Exam</button>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+

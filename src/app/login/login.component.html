@@ -1,0 +1,45 @@
+<section class="overflow-x-hidden">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 imagelogin">
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mx-auto my-auto">
+            <h2 class="text-center mb-3 fw-bold" style="color: #FFCC00;">SignIn</h2>
+            <form style="color:#FAF5E9 ;" [formGroup]="usersLogin">
+                <div class="row mb-2">
+                    <div class="d-flex justify-content-center">
+                        <div class="form-check me-3">
+                            <input class="form-check-input" value="students" formControlName="type" type="radio" name="type" id="students"  (change)="getstatus($event)" >
+                            <label class="form-check-label" for="flexRadioDefault1">
+                             Student
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" value="doctor" formControlName="type" type="radio" name="type" id="doctor"  (change)="getstatus($event)">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Doctor
+                            </label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <label class="fw-bold ms-3 mb-2">Email</label>
+                      <input type="email" class="form-control mb-2" formControlName="email" placeholder="Email" aria-label="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="fw-bold ms-3 mb-2">Password</label>
+                      <input type="password" class="form-control mb-2" formControlName="password" placeholder="Password" aria-label="Password">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a routerLink="/register" class="btn mt-4" style="color: #009B4D;" value="Log In">Create account </a>
+                    <button  type="submit" class="btn mt-4" (click)="submit()" [disabled]="usersLogin.invalid"  style="background-color: #009B4D; color: #FAF5E9;">
+                      Sign Up
+                  </button>                   
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

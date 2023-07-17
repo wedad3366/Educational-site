@@ -1,0 +1,143 @@
+{
+    "students": [
+      {
+        "userName": "wedad",
+        "email": "wedadashraf@future.com",
+        "password": "123",
+        "id": 1
+      },
+      {
+        "userName": "ahmed",
+        "email": "ahmed@future.com",
+        "password": "1234",
+        "subjects": [
+          {
+            "name": "Math",
+            "id": "1",
+            "grade": 3
+          },
+          {
+            "name": "Science",
+            "id": "3",
+            "grade": 0
+          }
+        ],
+        "id": 2
+      },
+      {
+        "userName": "safa",
+        "email": "safa@future.com",
+        "password": "987",
+        "subjects": [
+          {
+            "name": "Arabic",
+            "id": "2",
+            "grade": 2
+          }
+        ],
+        "id": 3
+      },
+      {
+        "userName": "youssif",
+        "email": "youssif@future.com",
+        "password": "12345",
+        "id": 4
+      }
+    ],
+    "doctor": [
+      {
+        "userName": "admin",
+        "email": "admin@future.com",
+        "password": "123456",
+        "id": 3
+      }
+    ],
+    "subjects": [
+      {
+        "subjectName": "Math",
+        "questions": [
+          {
+            "id": "1",
+            "question": "2*2",
+            "answer1": "4",
+            "answer2": "8",
+            "answer3": "5",
+            "answer4": "10",
+            "correctAnswer": "4"
+          },
+          {
+            "id": "2",
+            "question": "5*5",
+            "answer1": "10",
+            "answer2": "15",
+            "answer3": "5",
+            "answer4": "25",
+            "correctAnswer": "25"
+          },
+          {
+            "id": "3",
+            "question": "6*6",
+            "answer1": "16",
+            "answer2": "36",
+            "answer3": "12",
+            "answer4": "30",
+            "correctAnswer": "36"
+          }
+        ],
+        "id": 1
+      },
+      {
+        "subjectName": "Arabic",
+        "questions": [
+          {
+            "id": "1",
+            "question": "مرادف كلمه : يمحو",
+            "answer1": "يمسح",
+            "answer2": "ياكل",
+            "answer3": "يقلب",
+            "answer4": "يلعب",
+            "correctAnswer": "يمسح"
+          },
+          {
+            "id": "2",
+            "question": "اين ذهب الانسان حين شعر بالحزن ؟",
+            "answer1": "البحر",
+            "answer2": "الجنينه",
+            "answer3": "الاصدقاء",
+            "answer4": "الشارع",
+            "correctAnswer": "الشارع"
+          }
+        ],
+        "id": 2
+      },
+      {
+        "subjectName": "Science",
+        "questions": [
+          {
+            "id": "1",
+            "question": "Is a process by which species change over many generations through mutatio",
+            "answer1": "pollination",
+            "answer2": "photosynthesis",
+            "answer3": "reproduction",
+            "answer4": "adaptation",
+            "correctAnswer": "adaptation"
+          },
+          {
+            "id": "2",
+            "question": "…… is a change of traits, such as features and behaviors",
+            "answer1": "habitat",
+            "answer2": "adaptation",
+            "answer3": "mutation",
+            "answer4": "niche",
+            "correctAnswer": "niche"
+          }
+        ],
+        "id": 3
+      }
+    ],
+    "login": [
+      {
+        "id": "1"
+      }
+    ]
+  }

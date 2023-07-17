@@ -1,0 +1,32 @@
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mt-2">
+                <div class="mb-5 mt-5">
+                  <h3 class="fw-bold fs-2" style="color: #FFCC00;">Grade of Students</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle table-hover text-center">
+                        <thead class="table-dark">
+                        <tr>
+                            <th style="color: #FAF5E9;" scope="col">#</th>
+                            <th style="color: #FAF5E9;"scope="col">Student Name</th>
+                            <th style="color: #FAF5E9;"  scope="col">Subject</th>
+                            <th style="color: #FAF5E9;" scope="col">Grade</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        <tr *ngFor="let item of dataTable ; index as i">
+                            <th style="background-color: #FAF5E9; color: green;" scope="row">{{i+1}}</th>
+                            <td style="background-color: #FAF5E9;" >{{item.name}}</td>
+                            <td style="background-color: #FAF5E9;" >{{item.subjectName}}</td>
+                            <td style="background-color: #FAF5E9;" >{{item.grade}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

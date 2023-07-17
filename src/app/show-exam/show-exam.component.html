@@ -1,0 +1,51 @@
+<app-header></app-header>
+<section class="mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mt-2">
+                <div class="mb-5 mt-5">
+                 <h3 class="fw-bold fs-2 text-center" style="color: #FFCC00;">{{subjectName}} Exam</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 ">
+                <div *ngFor="let item of exam?.questions ; index as i ; let index = index">
+                    <div class="d-flex justify-content-start">
+                        <div class="mt-2">
+                            <p class="text-white"><b class="text-decoration-underline fw-bold me-3 fs-5">Question <span style="color: #FFCC00;">{{i+1}}</span></b><span class="fs-3">{{item.question}}</span></p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4 mt-4" style="color: #FAF5E9;">
+                        <div class="form-check me-3">
+                            <input class="form-check-input" *ngIf="usersLogin?.status =='students' && !result  && validExam" (change)="getAnswer($event)" value="{{item.answer1}}" name="{{index}}" type="radio" >
+                            <p class="fs-4"><span *ngIf="usersLogin?.status =='doctor' || result || !validExam" style="color: #FFCC00;">1 -</span> {{item.answer1}}</p>
+                        </div>
+                          <div class="form-check">
+                            <input class="form-check-input mt-2" *ngIf="usersLogin?.status =='students' && !result  && validExam"  (change)="getAnswer($event)"  value="{{item.answer2}}"  name="{{index}}" type="radio" >
+                            <p class="fs-4"><span *ngIf="usersLogin?.status =='doctor' || result || !validExam" style="color: #FFCC00;">2 -</span> {{item.answer2}}</p>
+                          </div>
+                    </div>
+                    <div class="d-flex justify-content-between" style="color: #FAF5E9;">
+                        <div class="form-check me-3">
+                            <input class="form-check-input mt-2" *ngIf="usersLogin?.status =='students' && !result  && validExam"  (change)="getAnswer($event)"  value="{{item.answer3}}"  name="{{index}}" type="radio"  >
+                            <p class="fs-4"><span *ngIf="usersLogin?.status =='doctor' || result || !validExam" style="color: #FFCC00;">3 -</span> {{item.answer3}}</p>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input mt-2" *ngIf="usersLogin?.status =='students' && !result  && validExam"  (change)="getAnswer($event)"  value="{{item.answer4}}" name="{{index}}" type="radio" >
+                            <p class="fs-4"><span *ngIf="usersLogin?.status =='doctor' || result || !validExam" style="color: #FFCC00;">4 -</span> {{item.answer4}}</p>
+                          </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-2 mb-2" *ngIf="usersLogin?.status =='doctor'" role="group" aria-label="Basic mixed styles example">
+                         <button type="button" class="btn btn-danger" (click)="deleteOneQues(index)">Delete</button>
+                    </div>
+                    <hr style="color: #FAF5E9;">
+                </div>
+                <div class="d-flex justify-content-center mt-3" *ngIf="usersLogin?.status =='students'">
+                    <button type="button" class="btn" *ngIf="!result && validExam" style="background-color: #009B4D;"  (click)="getResult()">Result</button>
+                    <p style="color: #009B4D; background-color: #FAF5E9;" *ngIf="result || !validExam" class="fs-5 p-3 rounded-2">Your Exam Result : <span class="text-dark">{{total}} / {{exam.questions.length}}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

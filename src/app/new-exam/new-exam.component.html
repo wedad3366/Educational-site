@@ -44,12 +44,12 @@
                     </div>
                     <div class="d-flex justify-content-between mt-4" role="group" aria-label="Basic mixed styles example">
                         <div>
-                            <button type="button" class="btn btn-success  me-3 text-white" *ngIf="!showButtonSave" [disabled]="createQuestion.invalid" (click)="createNewQuestion()">Save</button>
+                            <button type="button" class="btn btn-success  me-3 text-white mb-2" *ngIf="!showButtonSave" [disabled]="createQuestion.invalid" (click)="createNewQuestion()">Save</button>
                             <input type="submit" class="btn btn-success  me-3 text-white" *ngIf="showButtonSaveEdit" value="Save Edit">
                             <button type="button"class="btn btn-outline-success text-white" *ngIf="!showButtonFinsh" [disabled]="(allQuestion.length == 0 ) ? true : false" (click)="submit()">Finish all question</button>
                         </div>
                         <div>
-                            <button type="button" class="btn me-3 text-white"  style="background-color: #FFCC00;" *ngIf="!showButtonEdit" (click)="showPartOne()">Edit Subject</button>
+                            <button type="button" class="btn me-3 text-white mb-2"  style="background-color: #FFCC00;" *ngIf="!showButtonEdit" (click)="showPartOne()">Edit Subject</button>
                             <button type="button"class="btn btn-outline-success text-white me-3" *ngIf="showButtonAdd" (click)="addNewQuestionInExam()">Add</button>
                             <button type="button" class="btn btn-danger" (click)="deleteExam()">Delete All Exam</button>
                         </div>
